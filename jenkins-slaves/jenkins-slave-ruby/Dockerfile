@@ -33,7 +33,7 @@ ADD ubi.repo /etc/yum.repos.d/ubi.repo
 
 RUN INSTALL_PKGS="rh-ruby$RUBY_SHORT_VERSION rh-ruby$RUBY_SHORT_VERSION-ruby-devel rh-ruby$RUBY_SHORT_VERSION-rubygem-rake rh-ruby$RUBY_SHORT_VERSION-rubygem-bundler rh-nodejs8 autoconf automake zlib zlib-devel gcc-c++ sqlite-devel libxslt-devel libxml2-devel" && \
     DISABLE_REPOS=--disablerepo='rhel-*' && \
-    yum $DISABLE_REPOS install -y --setopt=tsflags=nodocs $INSTALL_PKGS && rpm -V $INSTALL_PKGS && \
+    yum $DISABLE_REPOS install -y --setopt=tsflags=nodocs $INSTALL_PKGS && rpm -V $INSTALL_PKGS && yum $DISABLE_REPOS groupinstall -y "Development Tools"\
     yum remove -y origin-clients && \
     yum $DISABLE_REPOS clean all -y && \
 
