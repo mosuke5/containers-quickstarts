@@ -36,7 +36,6 @@ RUN INSTALL_PKGS="rh-ruby$RUBY_SHORT_VERSION rh-ruby$RUBY_SHORT_VERSION-ruby-dev
     yum $DISABLE_REPOS install -y --setopt=tsflags=nodocs $INSTALL_PKGS && rpm -V $INSTALL_PKGS && \
     yum remove -y origin-clients && \
     yum $DISABLE_REPOS clean all -y && \
-
     rm -rf /var/cache/yum
 
 RUN curl $ORIGIN_CLIENT | tar -C /usr/local/bin/ -xzf - && \
