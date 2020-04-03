@@ -6,7 +6,7 @@ ENV OC_CLIENT_MIRROR https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4
 ENV HOME /home/tool-box
 
 RUN yum -y update && \
-    INSTALL_PKGS="git vim unzip python36 podman" && \
+    INSTALL_PKGS="git vim unzip python36 skopeo" && \
     yum -y install $INSTALL_PKGS && \
     yum clean all
 
